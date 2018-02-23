@@ -24,7 +24,7 @@ class PurchasesController < ApplicationController
       :description => 'Rails Stripe customer',
       :currency    => 'usd'
     )
-    StripeUser.create(user_id: current_user.id, stripe_customer_id: customer.id) unless current_user.stripe_user.exists?
+    StripeUser.create(user_id: current_user.id, stripe_customer_id: customer.id) unless current_user.stripe_user.present?
     @purchase = Purchase.new(purchase_params)
     @purchase.user_id = current_user.id
     if @purchase.save
