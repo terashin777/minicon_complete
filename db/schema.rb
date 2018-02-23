@@ -10,7 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180204154654) do
+ActiveRecord::Schema.define(version: 20180223075931) do
+
+  create_table "credit_cards", force: :cascade do |t|
+    t.integer "user_id"
+    t.string "expiration_date"
+    t.integer "cvc"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "event_categories", force: :cascade do |t|
     t.string "name"
@@ -36,6 +44,13 @@ ActiveRecord::Schema.define(version: 20180204154654) do
     t.integer "status", default: 0
     t.integer "ticket_quantity"
     t.integer "total_price"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "stripe_users", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "stripe_customer_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

@@ -38,7 +38,16 @@
       <card class="order-confirmation-card">
         <h4>Order Total</h4>
         <h5><%= @event.ticket_price %>円</h5>
-        <%= form.submit 'Confirm', class: 'button button-primary', data: { confirm: 'Your order will be processed. Are you sure?' } %>
+        <script
+          src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+          data-key="<%= Rails.configuration.stripe[:publishable_key] %>" 
+          data-amount=<%= @event.ticket_price %>
+          data-name="TEST.JP"
+          data-description="Example charge"
+          data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
+          data-locale="auto"
+          data-currency="jpy">
+        </script>
       </card>
     </div>
   </div>

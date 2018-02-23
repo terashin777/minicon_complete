@@ -10,6 +10,8 @@ Rails.application.routes.draw do
 
   get '/purchases', to: 'purchases#index'
 
+  resources :charges
+
   namespace :admin do
     resources :event_categories
     resources :events

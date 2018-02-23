@@ -1,5 +1,14 @@
 <div class="row ">
   <div class="eight columns">
+    <div>
+      <%= link_to "Connect Stripe", "https://connect.stripe.com/oauth/authorize?response_type=code&client_id=ca_CNJ3sMWTtZ43cVr3EGBO0mLBd3m63nio&scope=read_write" %>
+    </div>
+    <div>
+      <%= link_to 'New Event', new_admin_event_path %>
+    </div>
+    <div>
+      <%= link_to 'New Event Category', new_admin_event_category_path %>
+    </div>
     <% @events.each do |event| %>
       <card class="event-card">
         <h4><%= event.title %></h4>
